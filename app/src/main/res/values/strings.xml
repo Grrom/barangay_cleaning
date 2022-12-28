@@ -12,4 +12,6 @@
     <string name="menu_areas">Areas</string>
     <string name="menu_activities">Activities</string>
     <string name="menu_reports">Reports</string>
+    <string name="home_title">Barangay BanayBanay</string>
+    <string name="lorem_ipsum">Nunc ac dui id dolor tincidunt rhoncus eu at sem. Curabitur in purus lectus. Curabitur finibus lectus quis massa luctus, vitae sodales mi feugiat. Fusce semper diam ut felis ultrices, ac volutpat nibh sodales. Nunc ultricies turpis eget neque lobortis fringilla. Ut vel finibus diam. Mauris sollicitudin, risus vel consequat aliquet, quam urna dapibus dui, id iaculis enim lorem non justo. Fusce sodales scelerisque suscipit. Duis rhoncus a ligula in tincidunt. </string>
 </resources>
