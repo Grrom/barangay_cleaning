@@ -1,4 +1,4 @@
-package com.example.barangay_cleaning.models;
+package com.example.barangay_cleaning.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.barangay_cleaning.R;
+import com.example.barangay_cleaning.models.Resident;
 import com.example.barangay_cleaning.views.ResidentActivity;
 
 import java.util.ArrayList;

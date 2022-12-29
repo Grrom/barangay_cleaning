@@ -21,16 +21,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/card_background"
             >
             <androidx.cardview.widget.CardView
+                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="12dp"
                 >
                 <ImageView
                     android:id="@+id/resident_image"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:src="@drawable/temp_profile"
                     />
             </androidx.cardview.widget.CardView>
