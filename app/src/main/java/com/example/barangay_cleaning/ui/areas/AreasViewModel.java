@@ -10,7 +10,6 @@ public class AreasViewModel extends ViewModel {
 
     public AreasViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is areas fragment");
     }
 
     public LiveData<String> getText() {

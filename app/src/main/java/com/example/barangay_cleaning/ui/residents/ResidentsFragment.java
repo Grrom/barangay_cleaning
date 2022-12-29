@@ -39,10 +39,6 @@ public class ResidentsFragment extends Fragment {
         ResidentsViewModel galleryViewModel =
                 new ViewModelProvider(this).get(ResidentsViewModel.class);
 
-
-//        final TextView textView = binding.textGallery;
-//        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
         return root;
     }
 

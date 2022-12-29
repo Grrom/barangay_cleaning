@@ -16,8 +16,7 @@
         <activity
             android:name=".views.ResidentActivity"
             android:exported="false"
-            android:parentActivityName=".ui.residents.ResidentsFragment"
-            />
+            android:parentActivityName=".ui.residents.ResidentsFragment" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
