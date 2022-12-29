@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    android:padding="8dp"
+    android:background="@drawable/card_background">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proof of Violation"
+            android:textStyle="bold"
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:cardCornerRadius="12dp"
+            android:layout_gravity="center"
+            >
+            <ImageView
+                android:id="@+id/violation_image_proof"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/temp_profile"
+                />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Violation"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/violation_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="violation name"
+            />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/violation_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="violation status"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/offender_details"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Offender"
+            android:textStyle="bold"
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="12dp"
+            >
+
+            <ImageView
+                android:id="@+id/offender_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/temp_profile"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/view_button"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="view"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

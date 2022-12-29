@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.barangay_cleaning.R;
@@ -20,11 +21,18 @@ public class ResidentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resident);
 
 
-        TextView textView = findViewById(R.id.textView);
+        TextView name = findViewById(R.id.resident_name);
+        TextView age = findViewById(R.id.resident_age);
+        TextView address = findViewById(R.id.resident_address);
+        ImageView image = findViewById(R.id.resident_image);
 
         Resident resident = (Resident) getIntent().getSerializableExtra("resident");
         getSupportActionBar().setTitle(resident.getName());
-        textView.setText(resident.getName());
+
+        name.setText(resident.getName());
+        age.setText(String.valueOf(resident.getAge()));
+        address.setText(resident.getAddress());
+        image.setImageResource(resident.getImage());
     }
 
     @Override

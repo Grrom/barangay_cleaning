@@ -29,7 +29,7 @@ public class ResidentsAdapter  extends RecyclerView.Adapter<ResidentsAdapter.MyV
     @NonNull
     @Override
     public ResidentsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ResidentsAdapter.MyViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_row, parent , false));
+        return new ResidentsAdapter.MyViewHolder(LayoutInflater.from(context).inflate(R.layout.resident_item_row, parent , false));
     }
 
     @Override
