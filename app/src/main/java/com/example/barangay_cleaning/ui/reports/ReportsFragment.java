@@ -9,24 +9,57 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.barangay_cleaning.R;
+import com.example.barangay_cleaning.adapters.AreasAdapter;
+import com.example.barangay_cleaning.adapters.ReportsAdapter;
+import com.example.barangay_cleaning.databinding.FragmentAreasBinding;
+import com.example.barangay_cleaning.databinding.FragmentReportsBinding;
+import com.example.barangay_cleaning.databinding.FragmentResidentsBinding;
 import com.example.barangay_cleaning.databinding.FragmentSlideshowBinding;
+import com.example.barangay_cleaning.models.Report;
+import com.example.barangay_cleaning.models.Resident;
+import com.example.barangay_cleaning.ui.areas.AreasViewModel;
+
+import java.util.ArrayList;
 
 public class ReportsFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+
+    private FragmentReportsBinding binding;
+
+    ArrayList<Report> reports = new ArrayList<>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ReportsViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(ReportsViewModel.class);
-
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentReportsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        RecyclerView recyclerView = binding.reportsRecyclerView;
+        setupReports();
+
+        ReportsAdapter adapter  = new ReportsAdapter(getContext(), reports);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        ReportsViewModel areasViewModel =
+                new ViewModelProvider(this).get(ReportsViewModel.class);
+
         return root;
+    }
+
+    private void setupReports(){
+        String name ="Littering";
+        String status= "unresolved";
+        int image= R.drawable.temp_profile;
+        String[] names = {"Gab", "Kyle","Jerome"};
+
+        for (int i = 0; i < names.length; i++){
+            reports.add(new Report(image, name,status , new Resident(image, names[i], 20, "Purok 3")));
+        }
     }
 
     @Override
