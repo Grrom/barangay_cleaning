@@ -45,9 +45,6 @@ public class ReportsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ReportsViewModel areasViewModel =
-                new ViewModelProvider(this).get(ReportsViewModel.class);
-
         return root;
     }
 
