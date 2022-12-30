@@ -40,6 +40,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
         holder.status.setText(reports.get(position).getStatus());
         holder.image.setImageResource(reports.get(position).getImage());
         if(reports.get(position).getStatus().equals("unresolved")){
+            holder.status.setTextColor(context.getResources().getColor(R.color.red));
             holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
         }
         holder.viewButton.setOnClickListener(view->{

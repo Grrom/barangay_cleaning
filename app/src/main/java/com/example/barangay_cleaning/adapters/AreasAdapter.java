@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.barangay_cleaning.R;
@@ -35,6 +36,11 @@ public class AreasAdapter  extends RecyclerView.Adapter<AreasAdapter.MyViewHolde
         holder.name.setText(areas.get(position).getName());
         holder.status.setText(areas.get(position).getStatus());
         holder.image.setImageResource(areas.get(position).getImage());
+
+        if(areas.get(position).getStatus().equals("unclean")){
+            holder.status.setTextColor(context.getResources().getColor(R.color.red));
+            holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
+        }
     }
 
     @Override
@@ -47,6 +53,7 @@ public class AreasAdapter  extends RecyclerView.Adapter<AreasAdapter.MyViewHolde
         ImageView image;
         TextView name;
         TextView status;
+        CardView statusIndicator;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +61,7 @@ public class AreasAdapter  extends RecyclerView.Adapter<AreasAdapter.MyViewHolde
             image = itemView.findViewById(R.id.area_image);
             name = itemView.findViewById(R.id.area_name);
             status = itemView.findViewById(R.id.area_status);
+            statusIndicator = itemView.findViewById(R.id.status_indicator);
         }
     }
 }

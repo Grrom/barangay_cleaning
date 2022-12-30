@@ -51,7 +51,7 @@ public class AreasFragment extends Fragment {
     private void setupAreasModel(){
         String[] names = {"park", "basketball court", "covered court"};
         int image= R.drawable.temp_bg;
-        String status = "clean";
+        String status = "unclean";
 
         for (int i = 0; i < names.length; i++){
             areas.add(new Area(image, names[i],  status));
