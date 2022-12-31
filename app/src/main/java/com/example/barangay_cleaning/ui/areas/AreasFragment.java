@@ -2,10 +2,13 @@ package com.example.barangay_cleaning.ui.areas;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +44,7 @@ public class AreasFragment extends Fragment {
 
         RecyclerView recyclerView = binding.areasRecyclerView;
         EditText searchField = binding.searchArea;
+        Spinner areasSort = binding.areasSort;
 
         setupAreasModel();
 
@@ -48,9 +52,23 @@ public class AreasFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        AreasViewModel areasViewModel =
-                new ViewModelProvider(this).get(AreasViewModel.class);
+        areasSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = ((TextView)view).getText().toString();
+                areas.clear();
+                setupAreasModel();
+                if(!selected.equals("all")){
+                    areas.removeIf(s -> !s.getStatus().equalsIgnoreCase(selected.toLowerCase()));
+                }
+                adapter.notifyDataSetChanged();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         searchField.setOnKeyListener((v, keyCode, event) -> {
@@ -76,6 +94,7 @@ public class AreasFragment extends Fragment {
         int image= R.drawable.temp_bg;
         String status = "unclean";
 
+        areas.add(new Area(image, "Kindergarten",  "clean"));
         for (int i = 0; i < names.length; i++){
             areas.add(new Area(image, names[i],  status));
         }

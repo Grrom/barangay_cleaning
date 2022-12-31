@@ -7,7 +7,31 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/bg_light"
+    android:orientation="vertical"
     tools:context=".ui.reports.ReportsFragment">
+
+    <LinearLayout
+        android:layout_marginVertical="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sort:"
+            />
+        <Spinner
+            android:id="@+id/reports_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/reports_status"
+            />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reportsRecyclerView"
@@ -15,4 +39,5 @@
         android:layout_height="match_parent"
         android:textAlignment="center"
         />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

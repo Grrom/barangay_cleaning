@@ -2,11 +2,14 @@ package com.example.barangay_cleaning.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +45,9 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
         if(reports.get(position).getStatus().equals("unresolved")){
             holder.status.setTextColor(context.getResources().getColor(R.color.red));
             holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
+        }else{
+            holder.status.setTextColor(context.getResources().getColor(R.color.green));
+            holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.green));
         }
         holder.viewButton.setOnClickListener(view->{
             Intent intent = new Intent(context, ResidentActivity.class);

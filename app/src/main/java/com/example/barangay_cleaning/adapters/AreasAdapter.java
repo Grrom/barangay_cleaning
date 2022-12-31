@@ -1,10 +1,13 @@
 package com.example.barangay_cleaning.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +43,9 @@ public class AreasAdapter  extends RecyclerView.Adapter<AreasAdapter.MyViewHolde
         if(areas.get(position).getStatus().equals("unclean")){
             holder.status.setTextColor(context.getResources().getColor(R.color.red));
             holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
+        }else{
+            holder.status.setTextColor(context.getResources().getColor(R.color.green));
+            holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.green));
         }
     }
 
