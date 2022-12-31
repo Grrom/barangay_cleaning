@@ -1,12 +1,15 @@
 package com.example.barangay_cleaning.ui.areas;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,12 +33,15 @@ public class AreasFragment extends Fragment {
 
     ArrayList<Area> areas = new ArrayList<>();
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAreasBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         RecyclerView recyclerView = binding.areasRecyclerView;
+        EditText searchField = binding.searchArea;
+
         setupAreasModel();
 
         AreasAdapter adapter  = new AreasAdapter(getContext(), areas);
@@ -44,6 +50,23 @@ public class AreasFragment extends Fragment {
 
         AreasViewModel areasViewModel =
                 new ViewModelProvider(this).get(AreasViewModel.class);
+
+
+
+        searchField.setOnKeyListener((v, keyCode, event) -> {
+            if(event.getAction() == 1){
+                String input = ((EditText)v).getText().toString();
+
+                if((input.isEmpty())){
+                    areas.clear();
+                    setupAreasModel();
+                }else{
+                    areas.removeIf(s -> !s.getName().toLowerCase().contains((input.toLowerCase())));
+                }
+                adapter.notifyDataSetChanged();
+            }
+            return false;
+        });
 
         return root;
     }

@@ -7,7 +7,16 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/bg_light"
+    android:orientation="vertical"
     tools:context=".ui.areas.AreasFragment">
+
+    <EditText
+        android:id="@+id/searchArea"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="search"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/areasRecyclerView"
