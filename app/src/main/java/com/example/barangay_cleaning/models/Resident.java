@@ -4,13 +4,15 @@ import java.io.Serializable;
 
 public class Resident implements Serializable {
     int image;
-    String name;
+    String firstName;
+    String lastName;
     int age;
     String address;
 
-    public Resident(int image, String name, int age, String address){
+    public Resident(int image, String firstName, String lastName, int age, String address){
         this.image = image;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.address = address;
     }
@@ -19,15 +21,23 @@ public class Resident implements Serializable {
         return image;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getAge() {
         return age;
     }
 
     public String getAddress() {
         return address;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFullName() {
+        return firstName+" "+lastName;
     }
 }

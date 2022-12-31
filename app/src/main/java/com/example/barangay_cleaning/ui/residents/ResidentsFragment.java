@@ -57,7 +57,7 @@ public class ResidentsFragment extends Fragment {
                     residents.clear();
                     setupResidentModels();
                 }else{
-                    residents.removeIf(s -> !s.getName().toLowerCase().contains((input.toLowerCase())));
+                    residents.removeIf(s -> !(s.getFullName()+ " " + s.getAddress()).toLowerCase().contains((input.toLowerCase())));
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -69,12 +69,13 @@ public class ResidentsFragment extends Fragment {
 
     private void setupResidentModels(){
         String[] names = {"Gab", "Kyle","Jerome"};
+        String lastName = "Sins";
         int image= R.drawable.temp_profile;
         int age = 20;
         String address = "Purok 3";
 
         for (int i = 0; i < names.length; i++){
-            residents.add(new Resident(image, names[i], age, address));
+            residents.add(new Resident(image, names[i], lastName, age, address));
         }
     }
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,12 +32,14 @@ public class ReportsFragment extends Fragment {
     ArrayList<Report> reports = new ArrayList<>();
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentReportsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         RecyclerView recyclerView = binding.reportsRecyclerView;
+        EditText searchField = binding.searchReports;
         Spinner reportsSort = binding.reportsSort;
 
         setupReports();
@@ -49,7 +52,12 @@ public class ReportsFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = ((TextView)view).getText().toString();
+                String selected;
+                if(view==null){
+                    selected= "all";
+                }else{
+                    selected= ((TextView)view).getText().toString();
+                }
                 reports.clear();
                 setupReports();
                 if(!selected.equals("all")){
@@ -64,6 +72,20 @@ public class ReportsFragment extends Fragment {
             }
         });
 
+        searchField.setOnKeyListener((v, keyCode, event) -> {
+            if(event.getAction() == 1){
+                String input = ((EditText)v).getText().toString();
+
+                if((input.isEmpty())){
+                    reports.clear();
+                    setupReports();
+                }else{
+                    reports.removeIf(s -> !(s.getName()+ " "+ s.getOffender().getFullName()).toLowerCase().contains((input.toLowerCase())));
+                }
+                adapter.notifyDataSetChanged();
+            }
+            return false;
+        });
 
         return root;
     }
@@ -75,7 +97,7 @@ public class ReportsFragment extends Fragment {
         String[] names = {"Gab", "Kyle","Jerome"};
 
         for (int i = 0; i < names.length; i++){
-            reports.add(new Report(image, name,status , new Resident(image, names[i], 20, "Purok 3")));
+            reports.add(new Report(image, name,status , new Resident(image, names[i],"Sins", 20, "Purok 3")));
         }
     }
 

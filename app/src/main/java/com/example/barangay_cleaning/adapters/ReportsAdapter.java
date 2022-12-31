@@ -40,6 +40,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
     @Override
     public void onBindViewHolder(@NonNull ReportsAdapter.MyViewHolder holder, int position) {
         holder.name.setText(reports.get(position).getName());
+        holder.offenderName.setText(reports.get(position).getOffender().getFullName());
         holder.status.setText(reports.get(position).getStatus());
         holder.image.setImageResource(reports.get(position).getImage());
         if(reports.get(position).getStatus().equals("unresolved")){
@@ -65,6 +66,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
 
         ImageView image;
         TextView name;
+        TextView offenderName;
         TextView status;
         Button viewButton;
         CardView statusIndicator;
@@ -74,6 +76,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
 
             image = itemView.findViewById(R.id.violation_image_proof);
             name = itemView.findViewById(R.id.violation_name);
+            offenderName = itemView.findViewById(R.id.offender_name);
             status = itemView.findViewById(R.id.violation_status);
             viewButton = itemView.findViewById(R.id.view_button);
             statusIndicator= itemView.findViewById(R.id.status_indicator);

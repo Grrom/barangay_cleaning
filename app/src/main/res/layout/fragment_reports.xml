@@ -10,8 +10,16 @@
     android:orientation="vertical"
     tools:context=".ui.reports.ReportsFragment">
 
+    <EditText
+        android:id="@+id/searchReports"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter name of violation or name of offender."
+        />
+
     <LinearLayout
-        android:layout_marginVertical="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

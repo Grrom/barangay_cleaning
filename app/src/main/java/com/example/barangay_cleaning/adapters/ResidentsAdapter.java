@@ -35,7 +35,7 @@ public class ResidentsAdapter  extends RecyclerView.Adapter<ResidentsAdapter.MyV
 
     @Override
     public void onBindViewHolder(@NonNull ResidentsAdapter.MyViewHolder holder, int position) {
-        holder.name.setText(residents.get(position).getName());
+        holder.name.setText(residents.get(position).getFullName());
         holder.age.setText(String.valueOf(residents.get(position).getAge()));
         holder.address.setText(residents.get(position).getAddress());
         holder.image.setImageResource(residents.get(position).getImage());

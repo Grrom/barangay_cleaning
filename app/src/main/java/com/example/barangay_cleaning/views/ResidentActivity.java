@@ -27,9 +27,9 @@ public class ResidentActivity extends AppCompatActivity {
         ImageView image = findViewById(R.id.resident_image);
 
         Resident resident = (Resident) getIntent().getSerializableExtra("resident");
-        getSupportActionBar().setTitle(resident.getName());
+        getSupportActionBar().setTitle(resident.getFullName());
 
-        name.setText(resident.getName());
+        name.setText(resident.getFullName());
         age.setText(String.valueOf(resident.getAge()));
         address.setText(resident.getAddress());
         image.setImageResource(resident.getImage());

@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -48,7 +49,12 @@ public class AreasFragment extends Fragment {
         areasSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = ((TextView)view).getText().toString();
+                String selected;
+                if(view==null){
+                    selected= "all";
+                }else{
+                    selected= ((TextView)view).getText().toString();
+                }
                 areas.clear();
                 setupAreasModel();
                 if(!selected.equals("all")){
@@ -95,6 +101,7 @@ public class AreasFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        Toast.makeText(getContext(), "destroy areas", Toast.LENGTH_LONG);
         binding = null;
     }
 }
