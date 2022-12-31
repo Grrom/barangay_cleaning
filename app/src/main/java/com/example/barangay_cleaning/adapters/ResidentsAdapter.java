@@ -1,10 +1,14 @@
 package com.example.barangay_cleaning.adapters;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +47,22 @@ public class ResidentsAdapter  extends RecyclerView.Adapter<ResidentsAdapter.MyV
             Intent intent = new Intent(context, ResidentActivity.class);
             intent.putExtra("resident", residents.get(position));
             context.startActivity(intent);
+        });
+
+        holder.image.setOnClickListener(view -> {
+            Dialog settingsDialog = new Dialog(context);
+
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View newView = (View) inflater.inflate(R.layout.image_layout, null);
+
+            settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+            settingsDialog.setContentView(newView);
+
+            ImageView iv= (ImageView) newView.findViewById(R.id.image_popup);
+            Bitmap bm=((BitmapDrawable)holder.image.getDrawable()).getBitmap();
+            iv.setImageBitmap(bm);
+
+            settingsDialog.show();
         });
     }
 

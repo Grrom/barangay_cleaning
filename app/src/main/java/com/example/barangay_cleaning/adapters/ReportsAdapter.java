@@ -1,11 +1,17 @@
 package com.example.barangay_cleaning.adapters;
 
+import static android.app.PendingIntent.getActivity;
+
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,6 +49,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
         holder.offenderName.setText(reports.get(position).getOffender().getFullName());
         holder.status.setText(reports.get(position).getStatus());
         holder.image.setImageResource(reports.get(position).getImage());
+
         if(reports.get(position).getStatus().equals("unresolved")){
             holder.status.setTextColor(context.getResources().getColor(R.color.red));
             holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
@@ -54,6 +61,22 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
             Intent intent = new Intent(context, ResidentActivity.class);
             intent.putExtra("resident", reports.get(position).getOffender());
             context.startActivity(intent);
+        });
+
+        holder.image.setOnClickListener(view -> {
+            Dialog settingsDialog = new Dialog(context);
+
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View newView = (View) inflater.inflate(R.layout.image_layout, null);
+
+            settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+            settingsDialog.setContentView(newView);
+
+            ImageView iv= (ImageView) newView.findViewById(R.id.image_popup);
+            Bitmap bm=((BitmapDrawable)holder.image.getDrawable()).getBitmap();
+            iv.setImageBitmap(bm);
+
+            settingsDialog.show();
         });
     }
 
