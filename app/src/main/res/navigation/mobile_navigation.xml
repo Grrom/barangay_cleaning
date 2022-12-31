@@ -21,17 +21,11 @@
         android:id="@+id/nav_areas"
         android:name="com.example.barangay_cleaning.ui.areas.AreasFragment"
         android:label="@string/menu_areas"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_activities"
-        android:name="com.example.barangay_cleaning.ui.activities.ActivitiesFragment"
-        android:label="@string/menu_activities"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_areas" />
 
     <fragment
         android:id="@+id/nav_reports"
         android:name="com.example.barangay_cleaning.ui.reports.ReportsFragment"
         android:label="@string/menu_reports"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_reports" />
 </navigation>

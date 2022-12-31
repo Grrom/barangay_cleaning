@@ -6,27 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.barangay_cleaning.R;
-import com.example.barangay_cleaning.adapters.AreasAdapter;
 import com.example.barangay_cleaning.adapters.ReportsAdapter;
-import com.example.barangay_cleaning.databinding.FragmentAreasBinding;
 import com.example.barangay_cleaning.databinding.FragmentReportsBinding;
-import com.example.barangay_cleaning.databinding.FragmentResidentsBinding;
-import com.example.barangay_cleaning.databinding.FragmentSlideshowBinding;
 import com.example.barangay_cleaning.models.Report;
 import com.example.barangay_cleaning.models.Resident;
-import com.example.barangay_cleaning.ui.areas.AreasViewModel;
 
 import java.util.ArrayList;
 

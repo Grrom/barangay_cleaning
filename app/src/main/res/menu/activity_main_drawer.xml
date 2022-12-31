@@ -17,10 +17,6 @@
             android:icon="@drawable/ic_menu_areas"
             android:title="@string/menu_areas" />
         <item
-            android:id="@+id/nav_activities"
-            android:icon="@drawable/ic_menu_activities"
-            android:title="@string/menu_activities" />
-        <item
             android:id="@+id/nav_reports"
             android:icon="@drawable/ic_menu_reports"
             android:title="@string/menu_reports" />
