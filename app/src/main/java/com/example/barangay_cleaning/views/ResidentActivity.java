@@ -4,18 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.barangay_cleaning.R;
-import com.example.barangay_cleaning.adapters.ReportsAdapter;
 import com.example.barangay_cleaning.adapters.ViolationsAdapter;
 import com.example.barangay_cleaning.models.Report;
 import com.example.barangay_cleaning.models.Resident;
@@ -70,4 +63,5 @@ public class ResidentActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
 }
