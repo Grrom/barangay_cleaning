@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.barangay_cleaning.R;
 import com.example.barangay_cleaning.adapters.ReportsAdapter;
 import com.example.barangay_cleaning.databinding.FragmentReportsBinding;
+import com.example.barangay_cleaning.models.Constants;
 import com.example.barangay_cleaning.models.Report;
 import com.example.barangay_cleaning.models.Resident;
 
@@ -90,14 +91,7 @@ public class ReportsFragment extends Fragment {
     }
 
     private void setupReports(){
-        String name ="Littering";
-        String status= "unresolved";
-        int image= R.drawable.temp_profile;
-        String[] names = {"Gab", "Kyle","Jerome"};
-
-        for (int i = 0; i < names.length; i++){
-            reports.add(new Report(image, name,status , new Resident(image, names[i],"Sins", 20, "Purok 3")));
-        }
+        reports.addAll(Constants.getReports());
     }
 
     @Override

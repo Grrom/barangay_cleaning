@@ -21,6 +21,7 @@ import com.example.barangay_cleaning.R;
 import com.example.barangay_cleaning.adapters.AreasAdapter;
 import com.example.barangay_cleaning.databinding.FragmentAreasBinding;
 import com.example.barangay_cleaning.models.Area;
+import com.example.barangay_cleaning.models.Constants;
 
 import java.util.ArrayList;
 
@@ -89,15 +90,9 @@ public class AreasFragment extends Fragment {
     }
 
     private void setupAreasModel(){
-        String[] names = {"park", "basketball court", "covered court"};
-        int image= R.drawable.temp_bg;
-        String status = "unclean";
-
-        areas.add(new Area(image, "Kindergarten",  "clean"));
-        for (int i = 0; i < names.length; i++){
-            areas.add(new Area(image, names[i],  status));
-        }
+        areas.addAll(Constants.getAreas());
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -49,8 +49,9 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
         holder.offenderName.setText(reports.get(position).getOffender().getFullName());
         holder.status.setText(reports.get(position).getStatus());
         holder.image.setImageResource(reports.get(position).getImage());
+        holder.offenderImage.setImageResource(reports.get(position).getOffender().getImage());
 
-        if(reports.get(position).getStatus().equals("unresolved")){
+        if(reports.get(position).getStatus().equalsIgnoreCase("unresolved")){
             holder.status.setTextColor(context.getResources().getColor(R.color.red));
             holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
         }else{
@@ -88,6 +89,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
+        ImageView offenderImage;
         TextView name;
         TextView offenderName;
         TextView status;
@@ -98,6 +100,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
             super(itemView);
 
             image = itemView.findViewById(R.id.violation_image_proof);
+            offenderImage = itemView.findViewById(R.id.offender_image);
             name = itemView.findViewById(R.id.violation_name);
             offenderName = itemView.findViewById(R.id.offender_name);
             status = itemView.findViewById(R.id.violation_status);

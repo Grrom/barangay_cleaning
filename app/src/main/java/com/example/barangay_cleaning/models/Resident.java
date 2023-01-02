@@ -3,13 +3,15 @@ package com.example.barangay_cleaning.models;
 import java.io.Serializable;
 
 public class Resident implements Serializable {
+    int id;
     int image;
     String firstName;
     String lastName;
     int age;
     String address;
 
-    public Resident(int image, String firstName, String lastName, int age, String address){
+    public Resident(int id,int image, String firstName, String lastName, int age, String address){
+        this.id = id;
         this.image = image;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,6 +37,10 @@ public class Resident implements Serializable {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFullName() {

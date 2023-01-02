@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.barangay_cleaning.R;
 import com.example.barangay_cleaning.databinding.FragmentResidentsBinding;
+import com.example.barangay_cleaning.models.Constants;
 import com.example.barangay_cleaning.models.Resident;
 import com.example.barangay_cleaning.adapters.ResidentsAdapter;
 
@@ -46,19 +47,14 @@ public class ResidentsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ResidentsViewModel galleryViewModel =
-                new ViewModelProvider(this).get(ResidentsViewModel.class);
-
         searchField.setOnKeyListener((v, keyCode, event) -> {
             if(event.getAction() == 1){
                 String input = ((EditText)v).getText().toString();
 
-                if((input.isEmpty())){
-                    residents.clear();
-                    setupResidentModels();
-                }else{
-                    residents.removeIf(s -> !(s.getFullName()+ " " + s.getAddress()).toLowerCase().contains((input.toLowerCase())));
-                }
+                residents.clear();
+                setupResidentModels();
+                residents.removeIf(s -> !(s.getFullName()+ " " + s.getAddress()).toLowerCase().contains((input.toLowerCase())));
+
                 adapter.notifyDataSetChanged();
             }
             return false;
@@ -68,15 +64,7 @@ public class ResidentsFragment extends Fragment {
     }
 
     private void setupResidentModels(){
-        String[] names = {"Gab", "Kyle","Jerome"};
-        String lastName = "Sins";
-        int image= R.drawable.temp_profile;
-        int age = 20;
-        String address = "Purok 3";
-
-        for (int i = 0; i < names.length; i++){
-            residents.add(new Resident(image, names[i], lastName, age, address));
-        }
+        residents.addAll(Constants.getResidents());
     }
 
     @Override

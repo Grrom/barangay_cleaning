@@ -43,7 +43,7 @@ public class ViolationsAdapter  extends RecyclerView.Adapter<ViolationsAdapter.M
         holder.status.setText(reports.get(position).getStatus());
         holder.image.setImageResource(reports.get(position).getImage());
 
-        if(reports.get(position).getStatus().equals("unresolved")){
+        if(reports.get(position).getStatus().equalsIgnoreCase("unresolved")){
             holder.status.setTextColor(context.getResources().getColor(R.color.red));
             holder.statusIndicator.setCardBackgroundColor(context.getResources().getColor(R.color.red));
         }else{
