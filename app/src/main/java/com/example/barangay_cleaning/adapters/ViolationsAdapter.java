@@ -41,7 +41,7 @@ public class ViolationsAdapter  extends RecyclerView.Adapter<ViolationsAdapter.M
     public void onBindViewHolder(@NonNull ViolationsAdapter.MyViewHolder holder, int position) {
         holder.name.setText(reports.get(position).getName());
         holder.status.setText(reports.get(position).getStatus());
-        holder.image.setImageResource(reports.get(position).getImage());
+        holder.image.setImageURI(reports.get(position).getImage());
 
         if(reports.get(position).getStatus().equalsIgnoreCase("unresolved")){
             holder.status.setTextColor(context.getResources().getColor(R.color.red));

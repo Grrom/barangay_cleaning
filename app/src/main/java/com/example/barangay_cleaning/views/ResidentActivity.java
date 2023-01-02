@@ -1,17 +1,16 @@
 package com.example.barangay_cleaning.views;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.barangay_cleaning.R;
 import com.example.barangay_cleaning.adapters.ViolationsAdapter;
+import com.example.barangay_cleaning.helpers.DBHelper;
 import com.example.barangay_cleaning.models.Constants;
 import com.example.barangay_cleaning.models.Report;
 import com.example.barangay_cleaning.models.Resident;
@@ -22,7 +21,6 @@ public class ResidentActivity extends AppCompatActivity {
 
     ArrayList<Report> violations = new ArrayList<>();
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +50,10 @@ public class ResidentActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private void setupViolations(Resident resident){
-        violations.addAll(Constants.getReports());
-        violations.removeIf(s -> s.getOffender().getId() != resident.getId());
+        violations.addAll(DBHelper.getReportByResident(getApplicationContext(),resident.getId()));
+//        violations.addAll(Constants.getReports(getApplicationContext()));
+//        violations.removeIf(s -> s.getOffender().getId() != resident.getId());
     }
 
     @Override

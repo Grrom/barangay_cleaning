@@ -48,7 +48,7 @@ public class ReportsAdapter  extends RecyclerView.Adapter<ReportsAdapter.MyViewH
         holder.name.setText(reports.get(position).getName());
         holder.offenderName.setText(reports.get(position).getOffender().getFullName());
         holder.status.setText(reports.get(position).getStatus());
-        holder.image.setImageResource(reports.get(position).getImage());
+        holder.image.setImageURI(reports.get(position).getImage());
         holder.offenderImage.setImageResource(reports.get(position).getOffender().getImage());
 
         if(reports.get(position).getStatus().equalsIgnoreCase("unresolved")){

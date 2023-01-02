@@ -2,6 +2,7 @@ package com.example.barangay_cleaning.ui.reports;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,9 +31,15 @@ public class ReportsFragment extends Fragment {
     private FragmentReportsBinding binding;
 
     ArrayList<Report> reports = new ArrayList<>();
+    ReportsAdapter adapter ;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setupReports();
+        adapter.notifyDataSetChanged();
+    }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentReportsBinding.inflate(inflater, container, false);
@@ -45,7 +51,7 @@ public class ReportsFragment extends Fragment {
 
         setupReports();
 
-        ReportsAdapter adapter  = new ReportsAdapter(getContext(), reports);
+        adapter  = new ReportsAdapter(getContext(), reports);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -91,7 +97,7 @@ public class ReportsFragment extends Fragment {
     }
 
     private void setupReports(){
-        reports.addAll(Constants.getReports());
+        reports.addAll(Constants.getReports(getActivity()));
     }
 
     @Override

@@ -1,6 +1,9 @@
 package com.example.barangay_cleaning.models;
 
+import android.content.Context;
+
 import com.example.barangay_cleaning.R;
+import com.example.barangay_cleaning.helpers.DBHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,18 +34,9 @@ public class Constants {
         return residents;
     }
 
-    public static ArrayList<Report> getReports(){
-        ArrayList<Report> reports= new ArrayList<>();
+    public static ArrayList<Report> getReports(Context context){
+        ArrayList<Report> reports= DBHelper.getReports(context);
 
-        reports.add(new Report(R.drawable.report1, "Littering", "Unresolved", kyle));
-        reports.add(new Report(R.drawable.report2, "Littering", "Resolved", rizal));
-        reports.add(new Report(R.drawable.report3, "Littering", "Unresolved", temp_profile));
-        reports.add(new Report(R.drawable.report4, "Littering", "Unresolved", mabini));
-        reports.add(new Report(R.drawable.report5, "Littering", "Resolved", gregorio));
-        reports.add(new Report(R.drawable.report6, "Littering", "Unresolved", kyle));
-        reports.add(new Report(R.drawable.report7, "Vandalism", "Unresolved", temp_profile));
-        reports.add(new Report(R.drawable.report8, "Vandalism", "Unresolved", kyle));
-        reports.add(new Report(R.drawable.report9, "Vandalism", "Unresolved", temp_profile));
 
         Collections.sort(reports, (r1, r2) -> r1.getOffender().getFirstName().compareToIgnoreCase(r2.getOffender().getFirstName()));
 
