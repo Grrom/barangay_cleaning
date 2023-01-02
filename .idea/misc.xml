@@ -11,7 +11,10 @@
         <entry key="app/src/main/res/drawable/profile_background.xml" value="0.169" />
         <entry key="app/src/main/res/drawable/round_background.xml" value="0.239" />
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.352" />
+        <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.22791164658634538" />
+        <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.2503415300546448" />
         <entry key="app/src/main/res/layout/activity_areas.xml" value="0.32065217391304346" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3319746376811594" />
         <entry key="app/src/main/res/layout/activity_report.xml" value="0.32065217391304346" />
         <entry key="app/src/main/res/layout/activity_resident.xml" value="0.25" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.25" />
@@ -32,6 +35,7 @@
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.3546875" />
         <entry key="app/src/main/res/menu/main.xml" value="0.3546875" />
         <entry key="app/src/main/res/menu/resident_item_row.xml" value="0.3546875" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.174" />
       </map>
     </option>
   </component>
