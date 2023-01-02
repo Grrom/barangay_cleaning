@@ -1,6 +1,8 @@
 package com.example.barangay_cleaning.ui.reports;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,18 +75,25 @@ public class ReportsFragment extends Fragment {
             }
         });
 
-        searchField.setOnKeyListener((v, keyCode, event) -> {
-            if(event.getAction() == 1){
-                String input = ((EditText)v).getText().toString();
+        searchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                if((input.isEmpty())){
-                    setupReports();
-                }else{
-                    reports.removeIf(s -> !(s.getName()+ " "+ s.getOffender().getFullName()).toLowerCase().contains((input.toLowerCase())));
-                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable chars) {
+                String input = chars.toString();
+
+                setupReports();
+                reports.removeIf(s -> !(s.getName()+ " "+ s.getOffender().getFullName()).toLowerCase().contains((input.toLowerCase())));
                 adapter.notifyDataSetChanged();
             }
-            return false;
         });
 
         return root;
@@ -94,7 +103,6 @@ public class ReportsFragment extends Fragment {
         reports.clear();
         reports.addAll(Constants.getReports(getActivity()));
         if(adapter!=null){
-
             adapter.notifyDataSetChanged();
         }
     }

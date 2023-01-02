@@ -1,6 +1,9 @@
 package com.example.barangay_cleaning.ui.residents;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,23 +41,34 @@ public class ResidentsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        searchField.setOnKeyListener((v, keyCode, event) -> {
-            if(event.getAction() == 1){
-                String input = ((EditText)v).getText().toString();
+        searchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                residents.clear();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable chars) {
+                String input = chars.toString();
+                Log.e("DD", input );
+
                 setupResidentModels();
                 residents.removeIf(s -> !(s.getFullName()+ " " + s.getAddress()).toLowerCase().contains((input.toLowerCase())));
 
                 adapter.notifyDataSetChanged();
             }
-            return false;
-        });
+        } );
 
         return root;
     }
 
     private void setupResidentModels(){
+        residents.clear();
         residents.addAll(Constants.getResidents());
     }
 

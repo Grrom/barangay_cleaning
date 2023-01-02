@@ -1,7 +1,8 @@
 package com.example.barangay_cleaning.ui.areas;
 
-import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.barangay_cleaning.R;
 import com.example.barangay_cleaning.adapters.AreasAdapter;
 import com.example.barangay_cleaning.databinding.FragmentAreasBinding;
 import com.example.barangay_cleaning.models.Area;
@@ -69,25 +69,32 @@ public class AreasFragment extends Fragment {
         });
 
 
-        searchField.setOnKeyListener((v, keyCode, event) -> {
-            if(event.getAction() == 1){
-                String input = ((EditText)v).getText().toString();
+        searchField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                if((input.isEmpty())){
-                    areas.clear();
-                    setupAreasModel();
-                }else{
-                    areas.removeIf(s -> !s.getName().toLowerCase().contains((input.toLowerCase())));
-                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable chars) {
+                String input = chars.toString();
+
+                setupAreasModel();
+                areas.removeIf(s -> !s.getName().toLowerCase().contains((input.toLowerCase())));
                 adapter.notifyDataSetChanged();
             }
-            return false;
         });
 
         return root;
     }
 
     private void setupAreasModel(){
+        areas.clear();
         areas.addAll(Constants.getAreas());
     }
 

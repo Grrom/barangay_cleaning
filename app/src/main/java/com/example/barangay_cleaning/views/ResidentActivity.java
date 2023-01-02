@@ -51,9 +51,8 @@ public class ResidentActivity extends AppCompatActivity {
     }
 
     private void setupViolations(Resident resident){
+        violations.clear();
         violations.addAll(DBHelper.getReportByResident(getApplicationContext(),resident.getId()));
-//        violations.addAll(Constants.getReports(getApplicationContext()));
-//        violations.removeIf(s -> s.getOffender().getId() != resident.getId());
     }
 
     @Override
