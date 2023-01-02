@@ -1,8 +1,6 @@
 package com.example.barangay_cleaning.ui.reports;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.barangay_cleaning.R;
 import com.example.barangay_cleaning.adapters.ReportsAdapter;
 import com.example.barangay_cleaning.databinding.FragmentReportsBinding;
 import com.example.barangay_cleaning.models.Constants;
 import com.example.barangay_cleaning.models.Report;
-import com.example.barangay_cleaning.models.Resident;
 
 import java.util.ArrayList;
 
@@ -37,7 +33,6 @@ public class ReportsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         setupReports();
-        adapter.notifyDataSetChanged();
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -55,6 +50,7 @@ public class ReportsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
         reportsSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -64,7 +60,6 @@ public class ReportsFragment extends Fragment {
                 }else{
                     selected= ((TextView)view).getText().toString();
                 }
-                reports.clear();
                 setupReports();
                 if(!selected.equals("all")){
                     reports.removeIf(s -> !s.getStatus().equalsIgnoreCase(selected.toLowerCase()));
@@ -83,7 +78,6 @@ public class ReportsFragment extends Fragment {
                 String input = ((EditText)v).getText().toString();
 
                 if((input.isEmpty())){
-                    reports.clear();
                     setupReports();
                 }else{
                     reports.removeIf(s -> !(s.getName()+ " "+ s.getOffender().getFullName()).toLowerCase().contains((input.toLowerCase())));
@@ -97,7 +91,12 @@ public class ReportsFragment extends Fragment {
     }
 
     private void setupReports(){
+        reports.clear();
         reports.addAll(Constants.getReports(getActivity()));
+        if(adapter!=null){
+
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override
