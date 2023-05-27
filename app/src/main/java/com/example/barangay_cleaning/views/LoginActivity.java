@@ -35,13 +35,13 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            if(!usernameText.equals("kyle")){
+            if(!usernameText.equals("admin")){
                 username.setText("");
                 Toast.makeText(this, "User not found.",Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if(!passwordText.equals("moraga")){
+            if(!passwordText.equals("admin")){
                 password.setText("");
                 Toast.makeText(this, "Wrong Password.",Toast.LENGTH_SHORT).show();
                 return;

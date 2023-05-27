@@ -10,13 +10,13 @@ import java.util.Collections;
 
 public class Constants {
 
-    private static Resident kyle=new Resident(1,R.drawable.kyle, "Kyle", "Moraga", 22, "St. Matthew Subdivision");
-    private static Resident temp_profile=new Resident(2,R.drawable.temp_profile, "Gabriel", "Manimtim", 24, "St. Matthew Subdivision");
-    private static Resident rizal=new Resident(3,R.drawable.rizal, "Jose", "Rizal", 22, "St. Matthew Subdivision");
-    private static Resident mabini=new Resident(4,R.drawable.mabini, "Apolinario", "Mabini", 32, "St. Matthew Subdivision");
-    private static Resident antonio=new Resident(5,R.drawable.antonio, "Antonio", "Luna", 42, "St. Matthew Subdivision");
-    private static Resident gregorio=new Resident(6,R.drawable.gregorio, "Gregorio", "Del Pilar", 45, "St. Matthew Subdivision");
-    private static Resident josefa=new Resident(7,R.drawable.josefa, "Josefa", "Escoba", 32, "St. Matthew Subdivision");
+    private static Resident kyle=new Resident(1,R.drawable.vic, "Vic", "Hernandez", 22, "Purok 6 Calingatan");
+    private static Resident temp_profile=new Resident(2,R.drawable.gab, "Gab", "Manlapas", 24, "Purok 6 Calingatan");
+    private static Resident rizal=new Resident(3,R.drawable.jose, "Jose", "Ricardo", 22, "Purok 5 Calingatan");
+    private static Resident mabini=new Resident(4,R.drawable.paulino, "Paul", "Mabinag", 32, "Purok 5 Calingatan");
+    private static Resident antonio=new Resident(5,R.drawable.anton_lunar, "Anton", "Lunar", 42, "Purok 5 Calingatan");
+    private static Resident gregorio=new Resident(6,R.drawable.goryo, "Goryo", "Del Pilario", 45, "Purok 6 Calingatan");
+    private static Resident josefa=new Resident(7,R.drawable.josephine, "Josephine", "Escobar", 32, "Purok 6 Calingatan");
 
     public static ArrayList<Resident> getResidents(){
         ArrayList<Resident> residents= new ArrayList<>();
@@ -46,10 +46,11 @@ public class Constants {
     public static ArrayList<Area> getAreas(){
         ArrayList<Area> areas= new ArrayList<>();
 
-        areas.add(new Area(R.drawable.garden, "Garden", "clean"));
-        areas.add(new Area(R.drawable.school, "School", "unclean"));
-        areas.add(new Area(R.drawable.covered_court, "Covered Court", "clean"));
-        areas.add(new Area(R.drawable.park, "Park", "unclean"));
+        areas.add(new Area(R.drawable.a, "Purok 6", "clean"));
+        areas.add(new Area(R.drawable.health_center, "Purok 6", "unclean"));
+        areas.add(new Area(R.drawable.d, "Purok 5", "clean"));
+        areas.add(new Area(R.drawable.b, "Purok 5", "unclean"));
+        areas.add(new Area(R.drawable.c, "Purok 6", "unclean"));
 
         Collections.sort(areas, (r1, r2) -> r1.getName().compareToIgnoreCase(r2.getName()));
 

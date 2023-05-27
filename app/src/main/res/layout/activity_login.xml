@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:text="BanayBanay Purok 5 Cleaning system"
+        android:text="Calingatan Loob Cleaning system"
         android:textStyle="bold"
         />
 

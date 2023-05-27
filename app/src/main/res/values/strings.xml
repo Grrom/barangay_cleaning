@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BanayBanay Cleaning</string>
+    <string name="app_name">Calingatan Cleaning</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -12,8 +12,8 @@
     <string name="menu_areas">Areas</string>
     <string name="menu_activities">Activities</string>
     <string name="menu_reports">Reports</string>
-    <string name="home_title">Barangay BanayBanay</string>
-    <string name="lorem_ipsum">“Once there was a rich lady with many maids. She kept her maids with good food, clothing and light labor. However, each one had a definite task to perform every day. She had one laundrywoman, one seamstress, one cook, one waiter, one housekeeper and three gardeners. “This mistress of the house was very much inclined to make her garden very strong and attractive. During that time, wire and iron fences were unknown. Most of the fences were made of bamboo and stone walls. All these kinds of fences did not suit the taste of this lady. She said, ‘I shall marry the man who could make the fence of my garden suit my taste, however if he fails his head would be cut off.’ No one dared try the task for fear of losing his head. Therefore, the maids gave their suggestion as to the kind of fence which they thought would best suit their mistress’ desire. One maid suggested the aroma trees for fencing, the other suggested the murado plants and the last suggested banaybanay or papuwa as we call it today. The fence made of banaybanay plants suited the lady’s desire so the gardeners planted them around the garden. They trimmed them often as they could so the garden appeared very attractive. The neighbors saw this garden with banaybanay as its hedges. They planted them also as hedges in their gardens. Finally, all the people of the village had banaybanay as hedges of their flower gardens. So the whole barrio was given the name Banaybanay because of the uniformity of the hedges of the people’s gardens.” </string>
+    <string name="home_title">Barangay Calingatan</string>
+    <string name="lorem_ipsum">“Calingatan is a barangay in the municipality of Mataasnakahoy, in the province of Batangas. Its population as determined by the 2020 Census was 3,127. This represented 10.21% of the total population of Mataasnakahoy.” </string>
 
     <string-array name="areas_status">
         <item>all</item>
